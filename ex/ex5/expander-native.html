@@ -1,0 +1,45 @@
+﻿<html ng-app='expanderModule'>
+<head>
+  <title>펼치미 (expander)</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.js"></script>
+  <link href="expander-native.css" rel='stylesheet'>
+</head>
+  <body>
+    <div ng-controller='SomeController'>
+      <expander class='expander' expander-title='title'>
+        {{text}}
+      </expander>
+    </div>
+  </body>
+
+  <script>
+    function SomeController($scope) {
+      $scope.title = '펼치려면 클릭하세요';
+      $scope.text = '반가워요, 이것은 감춰져 있다가 지금 보여지는 내용입니다';
+    }
+
+    angular.module('expanderModule', [])
+        .directive('expander', function(){
+          return {
+            restrict: 'EA',
+            replace: true,
+            transclude: true,
+            scope: { title:'=expanderTitle' },
+            template: '<div>' +
+                '<div class="title">{{title}}</div>' +
+                '<div class="body closed" ng-transclude></div>' +
+                '</div>',
+            link: function(scope, element, attrs) {
+              var titleElement = angular.element(element.children().eq(0));
+              var bodyElement = angular.element(element.children().eq(1));
+
+              titleElement.bind('click', toggle);
+
+              function toggle() {
+                bodyElement.toggleClass('closed');
+              }
+            }
+          }
+        });
+  </script>
+</html>

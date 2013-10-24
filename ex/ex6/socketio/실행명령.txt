@@ -1,0 +1,12 @@
+
+* Pagination 애플리케이션을 실행해보기 위한 서버 시동 명령
+karma start server.js
+
+
+* 테스트를 위한 서버 시동 명령
+karma start testacular.conf.js
+
+
+* 사전에 CHROME_BIN 환경변수를 다음과 같이 설정한 후 리부팅하거나, 콘솔을 띄우고 set 명령을 사용해 환경변수를 다음과 같이 설정해야 합니다.
+(크롬 브라우저 실행파일의 경로를 환경변수로 인식시켜주기 위함)
+CHROME_BIN=C:\Program Files (x86)\Google\Chrome\Application\chrome.exe

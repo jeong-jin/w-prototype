@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html lang="ko" ng-app="guthub">
+<head>
+<title>GutHub (거트허브) - 레시피를 작성하고 공유하세요</title>
+<script src="scripts/vendor/angular.min.js"></script>
+<script src="scripts/vendor/angular-resource.min.js"></script>
+<script src="scripts/directives/directives.js"></script>
+<script src="scripts/services/services.js"></script>
+<script src="scripts/controllers/controllers.js"></script>
+<link href="styles/bootstrap.css" rel="stylesheet">
+<link href="styles/guthub.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>GutHub</h1>
+    </header>
+
+    <div butterbar>로딩 중입니다...</div>
+
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span2">
+                <!--Sidebar-->
+                <div id="focus">
+                    <a href="/#/new">새 레시피 작성</a>
+                </div>
+                <div>
+                    <a href="/#/">레시피 목록</a>
+                </div>
+
+            </div>
+            <div class="span10">
+                <div ng-view></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

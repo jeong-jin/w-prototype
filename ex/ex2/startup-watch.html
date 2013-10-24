@@ -1,0 +1,23 @@
+<!doctype html>
+<html ng-app>
+  <head>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+  </head>
+  <body>
+    <form ng-controller="StartUpController">
+      자본금: <input ng-model="funding.startingEstimate">
+      권장 자본금: {{funding.needed}}
+    </form>
+    <script>
+      function StartUpController($scope) {
+        $scope.funding = {startingEstimate: 0};
+        
+        computeNeeded = function() {
+          $scope.funding.needed = $scope.funding.startingEstimate * 10;
+        };
+        
+        $scope.$watch('funding.startingEstimate', computeNeeded);
+      }
+    </script>
+  </body>
+</html>

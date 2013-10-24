@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang='ko' ng-app='ShoppingModule'>
+<head>
+<title>장바구니</title>
+<script
+    src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+<link href="bootstrap.css" rel="stylesheet">
+</head>
+
+<body ng-controller="ShoppingController">
+    <h1>쇼핑하기</h1>
+    <table>
+        <tr ng-repeat="item in items">
+            <td>{{item.title}}</td>
+            <td>{{item.description}}</td>
+            <td>{{item.price | currency}}</td>
+        </tr>
+    </table>
+    <script>
+                    function ShoppingController($scope, Items) {
+                        $scope.items = Items.query();
+                    }
+
+                    // 쇼핑 뷰에 사용할 모듈을 선언
+                    var shoppingModule = angular.module('ShoppingModule', []);
+
+                    // 서버 데이터베이스에 Items 인터페이스를 생성하는 서비스 팩토리를 설정
+                    shoppingModule.factory('Items', function() {
+                        var items = {};
+                        items.query = function() {
+                            // 실무 앱이었다면, 이 데이터를 서버에서 받아오게 했을 것이다.
+                            return [ {
+                                title : '페인트 그릇',
+                                description : '페인트를 담아 쓸 수 있는 용기',
+                                price : 3.95
+                            }, {
+                                title : '땡땡이 리본',
+                                description : '물방울 무늬가 자수된 리본',
+                                price : 2.95
+                            }, {
+                                title : '공깃돌',
+                                description : '공기 놀이를 위한 오색 조약돌',
+                                price : 6.95
+                            } ];
+                        };
+                        return items;
+                    });
+                </script>
+</body>
+</html>

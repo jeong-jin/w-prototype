@@ -1,0 +1,24 @@
+<!doctype html>
+<html ng-app>
+  <head>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+  </head>
+  <body>
+    <form ng-submit="requestFunding()" ng-controller="StartUpController">
+      창업 예산: <input ng-change="computeNeeded()" ng-model="startingEstimate">
+      권장 자본금: {{needed}}
+      <button>저의 창업에 투자해주세요!</button>
+    </form>
+    <script>
+      function StartUpController($scope) {
+        $scope.computeNeeded = function() {
+          $scope.needed = $scope.startingEstimate * 10;
+        };
+
+        $scope.requestFunding = function() {
+          window.alert("인됐지만 고객부터 더 모으세요");
+        };
+      }
+    </script>
+  </body>
+</html>

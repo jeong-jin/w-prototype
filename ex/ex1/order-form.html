@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang='ko' ng-app>
+<head>
+<title>장바구니</title>
+</head>
+
+<body ng-controller="CartController">
+    <h1>내 장바구니</h1>
+
+    <div ng-repeat="item in items">
+        <span>{{item.title}}</span>
+        <input ng-model="item.quantity">
+        <span>{{item.price | currency}}</span>
+        <span>{{item.price * item.quantity | currency}}</span>
+        <button ng-click="remove($index)">삭제</button>
+    </div>
+    <script src="angular.js"></script>
+    <script>
+        function CartController($scope) {
+            $scope.items = [ {
+                title : '페인트 그릇',
+                quantity : 8,
+                price : 3.95
+            }, {
+                title : '땡땡이 리본',
+                quantity : 17,
+                price : 12.95
+            }, {
+                title : '공깃돌',
+                quantity : 5,
+                price : 6.95
+            } ];
+
+            $scope.remove = function(index) {
+                $scope.items.splice(index, 1);
+            }
+        }
+    </script>
+</body>
+</html>

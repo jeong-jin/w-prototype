@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang='ko' ng-app='app'>
+<head>
+<title>포커스 테스트</title>
+<script src="angular.min.js"></script>
+</head>
+
+<body ng-controller="SomeController">
+    <button ng-click="message='포커스 없는 버튼 클릭됨'">포커스가
+        없습니다</button>
+    <button focus ng-click="message='포커스 있는 버튼 클릭됨'">여기에
+        포커스가 있습니다!</button>
+    <input ng-model='message'></input>
+    <script>
+    function SomeController($scope) {
+        $scope.message = '아무것도 클릭되지 않음';
+    }
+
+    var appModule = angular.module('app', [ 'directives' ]);
+    var directivesModule = angular.module('directives', []);
+
+    angular.module('directives', []).directive('focus', function() {
+        return {
+            link : function(scope, element, attrs) {
+                element[0].focus();
+            }
+        };
+    });
+</script>
+</body>
+</html>

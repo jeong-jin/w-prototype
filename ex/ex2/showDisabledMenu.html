@@ -1,0 +1,30 @@
+<!doctype html>
+<html ng-app>
+  <head>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <style type="text/css">
+    .menu-disabled-true {
+      color: gray;
+    }
+    </style>
+  </head>
+  <body>
+    <div ng-controller='DeathrayMenuController'>
+      <ul>
+        <li class='menu-disabled-{{isDisabled}}' ng-click='stun()'>기절시키기</li>
+        <li ng-click='disintegrate()'>분해하기</li>
+        <li ng-click='erase()'>역사에서 지우기</li>
+      </ul>
+    <div/>
+    <script>
+      function DeathrayMenuController($scope) {
+        $scope.isDisabled = false;
+
+        $scope.stun = function() {
+          // 대상을 기절시킨 후, 메뉴를 다시 사용할 수 없게 함
+          $scope.isDisabled = true;
+        };
+      }
+    </script>
+  </body>
+</html>
