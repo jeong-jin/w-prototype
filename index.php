@@ -21,17 +21,18 @@
 <body>
 
 <div>
-    <a href="#/view1" class="btn">view1</a>
-    <a href="#/view2" class="btn">view2</a>
-    <a href="#/grid" class="btn">grid</a>
-    <a href="#/admin" class="btn" ng-show="isAdmin">admin</a>
+    <a href="#/home" class="btn">HOME</a>
+    <a href="#/service" class="btn">SERVICE</a>
+    <a href="#/template" class="btn">TEMPLATE</a>
+    <a href="#/contact" class="btn">CONTACT</a>
+    <a href="#/admin" class="btn" ng-show="isAdmin">ADMIN</a>
 </div>
 
 <hr>
 
 <div ng-view class="well well-small"></div>
 
-<button ng-hide="isAdmin" ng-click="isAdmin=true;">Become admin</button>
+<!--<button ng-hide="isAdmin" ng-click="isAdmin=true;">Become admin</button>-->
 
 
 <!--
