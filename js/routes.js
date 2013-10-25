@@ -11,26 +11,29 @@ define([
 		return app.config(function ($routeProvider) {
 
 			//view1 경로 설정
-			$routeProvider.when('/view1', routeConfig.config('../views/view1.html', 'controllers/first', {
+			$routeProvider.when('/home', routeConfig.config('../views/home.html', 'controllers/first', {
 				directives: ['directives/version'], 
 				services: [], 
 				filters: ['filters/reverse']
 			}));
 			
 			//view2 경로 설정
-			$routeProvider.when('/view2', routeConfig.config('../views/view2.html', 'controllers/second', {
+			$routeProvider.when('/service', routeConfig.config('../views/service.html', 'controllers/second', {
 				directives: ['directives/version'], 
 				services: ['services/tester'], 
 				filters: []
 			}));
 			
 			//grid 경로 설정
-			$routeProvider.when('/grid', routeConfig.config('../views/grid.html', 'controllers/grid'));
-			
+			$routeProvider.when('/template', routeConfig.config('../views/template.html', 'controllers/grid'));
+
+            //grid 경로 설정
+            $routeProvider.when('/contact', routeConfig.config('../views/contact.html', 'controllers/grid'));
+
 			//admin 경로 설정
 			$routeProvider.when('/admin', routeConfig.config('../views/admin.html', 'controllers/third'));
 
 			//기본 경로 설정
-			$routeProvider.otherwise({redirectTo:'/view1'});
+			$routeProvider.otherwise({redirectTo:'/home'});
 		});
 });
