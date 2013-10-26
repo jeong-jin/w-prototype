@@ -6,7 +6,7 @@ define([], function () {
 	function _controller($scope) {
 	
 		//CSS 설정
-		$scope.$emit('updateCSS', []);
+		$scope.$emit('updateCSS', ['css/admin.css']);
 	
 	
 		//컨트롤러3 메시지

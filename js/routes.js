@@ -10,28 +10,32 @@ define([
 		//app은 생성한 myApp 앵귤러 모듈
 		return app.config(function ($routeProvider) {
 
-			//view1 경로 설정
-			$routeProvider.when('/home', routeConfig.config('../views/home.html', 'controllers/first', {
+			//홈-메인 경로 설정
+			$routeProvider.when('/home', routeConfig.config('../views/home.html', 'controllers/home', {
 				directives: ['directives/version'], 
 				services: [], 
 				filters: ['filters/reverse']
 			}));
 			
-			//view2 경로 설정
-			$routeProvider.when('/service', routeConfig.config('../views/service.html', 'controllers/second', {
+			//서비스 소개 경로 설정
+			$routeProvider.when('/service', routeConfig.config('../views/service.html', 'controllers/service', {
 				directives: ['directives/version'], 
 				services: ['services/tester'], 
 				filters: []
 			}));
 			
-			//grid 경로 설정
-			$routeProvider.when('/template', routeConfig.config('../views/template.html', 'controllers/grid'));
+			//파일 업로드 / 템플릿 선택 / 템플릿 리스트 경로 설정
+			$routeProvider.when('/template', routeConfig.config('../views/template.html', 'controllers/template', {
+                directives: ['directives/version'],
+                services: ['services/tester'],
+                filters: []
+            }));
 
-            //grid 경로 설정
-            $routeProvider.when('/contact', routeConfig.config('../views/contact.html', 'controllers/grid'));
+            //연락처 경로 설정
+            $routeProvider.when('/contact', routeConfig.config('../views/contact.html', 'controllers/contact'));
 
 			//admin 경로 설정
-			$routeProvider.when('/admin', routeConfig.config('../views/admin.html', 'controllers/third'));
+			$routeProvider.when('/admin', routeConfig.config('../views/admin.html', 'controllers/admin'));
 
 			//기본 경로 설정
 			$routeProvider.otherwise({redirectTo:'/home'});

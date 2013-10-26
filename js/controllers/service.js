@@ -6,7 +6,7 @@ define([], function () {
 	function _controller($scope, tester) {
 	
 		//CSS 설정
-		$scope.$emit('updateCSS', ['css/css2.css']);
+		$scope.$emit('updateCSS', ['css/service.css']);
 
 	
 		//컨트롤러2 메시지
